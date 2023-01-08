@@ -1,27 +1,27 @@
-import { Button, Layout, Modal, Row } from 'antd';
-import React, { FC, useEffect, useState } from 'react';
-import CalendarForm from '../components/CalendarForm';
-import EventCalendar from '../components/EventCalendar';
-import { useActions } from '../hooks/useActions';
-import { useTypedSelector } from '../hooks/useTypedSelector';
-import { ICalendar } from '../models/ICalendar';
+import { Button, Layout, Modal, Row } from "antd";
+import React, { FC, useEffect, useState } from "react";
+import CalendarForm from "../components/CalendarForm";
+import EventCalendar from "../components/EventCalendar";
+import { useActions } from "../hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+import { ICalendar } from "../models/ICalendar";
 
 const Calendar: FC = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const {fetchGuests, createEvent, fetchEvents} = useActions();
-  const {guest, events} = useTypedSelector(state => state.event);
-  const {user} = useTypedSelector(state => state.auth);
+  const { fetchGuests, createEvent, fetchEvents } = useActions();
+  const { guest, events } = useTypedSelector((state) => state.event);
+  const { user } = useTypedSelector((state) => state.auth);
 
   useEffect(() => {
     fetchGuests();
     fetchEvents(user.username);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const addNewEvent = (event: ICalendar) => {
     setModalVisible(false);
     createEvent(event);
-  }
+  };
 
   return (
     <Layout>

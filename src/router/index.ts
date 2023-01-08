@@ -1,6 +1,6 @@
-import React from 'react';
-import Login from '../pages/Login';
-import Calendar from '../pages/Calendar';
+import React from "react";
+import Login from "../pages/Login";
+import Calendar from "../pages/Calendar";
 
 export interface IRoute {
   path: string;
@@ -8,14 +8,14 @@ export interface IRoute {
 }
 
 export enum RouteNames {
-  LOGIN='/login',
-  CALENDAR='/',
+  LOGIN = "/login",
+  CALENDAR = "/",
 }
 
 export const publicRoutes: IRoute[] = [
-  {path: RouteNames.LOGIN, component: Login}
-]
+  { path: RouteNames.LOGIN, component: Login },
+];
 
 export const privateRoutes: IRoute[] = [
-  {path: RouteNames.CALENDAR, component: Calendar}
-]
+  { path: RouteNames.CALENDAR, component: Calendar },
+];
