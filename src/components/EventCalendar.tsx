@@ -9,7 +9,7 @@ interface EventCalendarProps {
 }
 
 const EventCalendar: FC<EventCalendarProps> = (props) => {
-  function dateCellRender(value: Moment) {
+  function dateCellRender(value: Moment | any) {
     const formatedDate = formatDate(value.toDate());
     const currentDayEvents = props.events.filter(
       (ev) => ev.date === formatedDate

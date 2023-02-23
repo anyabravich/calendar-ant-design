@@ -23,7 +23,7 @@ const CalendarForm: FC<EventFormProps> = (props) => {
 
   const { user } = useTypedSelector((state) => state.auth);
 
-  const selectDate = (date: Moment | null) => {
+  const selectDate = (date: Moment | null | any) => {
     if (date) {
       setEvent({ ...event, date: formatDate(date.toDate()) });
     }
